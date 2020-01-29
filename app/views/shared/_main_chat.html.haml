@@ -1,0 +1,35 @@
+.main_chat
+  .main_chat__group
+    .main_chat__group--name
+      グループ名
+      .main_chat__group--name--member
+        メンバー
+    .main_chat__group--edit
+      = link_to "Edit", class:'edit-link'
+
+  .main_chat__message
+    .main_chat__message--list
+      .main_chat__message--list--name
+        名前
+        .main_chat__message--list--name--dete
+          2020/01/29
+      .main_chat__message--list--messages
+        メッセージ
+
+    .main_chat__message--list
+      .main_chat__message--list--name
+        名前
+        .main_chat__message--list--name--dete
+          2020/01/29
+      .main_chat__message--list--messages
+        メッセージ
+
+  .main_chat__message--form
+    .messageform
+      .messageform__textbox
+        %input{type: "text", placeholder: "type a message",class:"message--in"}
+        %label
+          = icon('fas', 'image')
+          %input{type: "file",class:"pic--file"}
+      .messageform__send--btn
+        = link_to "Send", class:'send-btn'
