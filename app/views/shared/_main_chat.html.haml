@@ -28,9 +28,12 @@
   .main_chat__message--form
     .messageform
       .messageform__textbox
-        %input{type: "text", placeholder: "type a message",class:"message--in"}
-        %label
-          = icon('fas', 'image')
-          %input{type: "file",class:"pic--file"}
-      .messageform__send--btn
-        = link_to "Send", class:'send-btn'
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'message--in', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'image' do
+              = icon('fas', 'image', class: 'icon')
+              = f.file_field :image, class: 'pic--file'
+
+          .messageform__send--btn
+          = f.submit 'Send', class: 'form__submit'

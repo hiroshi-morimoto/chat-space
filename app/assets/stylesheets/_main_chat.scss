@@ -6,6 +6,7 @@
   
   &__group{
     height: 100px;
+    width: 100%;
     border-bottom: 1px solid  #eeeeee;
     padding: 40px 40px;
     display: flex;
@@ -16,10 +17,12 @@
       font-size: 20px;
       margin-top: 35px;
       line-height: 20px;
+      width: 100%;
       &--member{
         color: #999999;
         font-size: 12px;
         margin-top: 15px;
+        width: 100%;
       }
     }
   
@@ -41,6 +44,7 @@
 
   &__message{
     height: calc(100vh - 100px - 90px);
+    width: 100%;
     background-color: #fafafa;
     display: block;
     padding: 35px 40px 0;
@@ -49,6 +53,7 @@
 
       &--name{
         color: #333333;
+        width: 100%;
         font-size: 16px;
         display: flex;
         line-height: 16px;
@@ -62,6 +67,7 @@
 
       &--messages{
         color: #434a54;
+        width: 100%;
         font-size: 14px;
         margin: 12px 0 46px;
         line-height: 14px;
@@ -73,14 +79,17 @@
     height: 90px;
     background-color: #d2d2d2;
     padding: 20px 40px;
+    width: 100%;
 
     .messageform{
-      display: flex;
       align-items: center;
-
       &__textbox{
         width: 100%;
         position: relative;
+      }
+      .new_message{
+        display: flex;
+        width: 100%;
         .message--in{
           height: 50px;
           line-height: 50px;
@@ -88,27 +97,28 @@
           padding: 0 40px 0 10px;
           position: relative;
         }
-          .fa-image{
-            position: absolute;
-            right: 10px;
-            line-height: 50px;
-            font-size: 20px;
+          .form__mask{
+          position: absolute;
+          right: 120px;
+          line-height: 52px;
+          font-size: 20px;
+          .image{
           }
           .pic--file{
-            display: none;
+            display: none; 
           }
-      }
-
-      &__send--btn{
-        a{
+        }
+      
+        .form__submit{
           text-decoration: none;
           color: #ffffff;
           font-size: 16px;
           background-color: #38aef0;
           margin-left: 15px;
           padding: 15px 30px;
-        }
+        }  
       }
     }
+   
   }
 }
