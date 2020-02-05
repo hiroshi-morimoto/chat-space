@@ -9,6 +9,7 @@
   &__user-name{
     background-color: #253141;
     height: 100px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,21 +42,30 @@
 
   &__group{
     height: calc(100vh - 100px);
+    width: 100%;
     padding: 20px 20px;
-  }
-  &__grouplist{  
+    }
+
+    &__grouplist{  
     height: 91px;
     width: 260px;
     padding: 20px 0 40px 0;
-  }
-  &__group-name{
+  
+      a{
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+      &__group-name{
     height: 15px;
+    width: 100%;
     font-size: 15px;
     margin-bottom: 5px;
     line-height: 15px;
   }
   &__messages{
     height: 11px;
+    width: 100%;
     font-size: 11px;
     line-height: 11px;
   }
