@@ -20,6 +20,7 @@
       display: flex;
       justify-content: space-between;
       line-height: 20px;
+
       &__names{
        font-size: 16px;
       }
@@ -44,7 +45,8 @@
     height: calc(100vh - 100px);
     width: 100%;
     padding: 20px 20px;
-    }
+    overflow: auto;
+  }
 
     &__grouplist{  
     height: 91px;
