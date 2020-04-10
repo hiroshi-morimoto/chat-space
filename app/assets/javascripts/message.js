@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       var html =
-         `<div class="main_chat__message--list">
+         `<div class="main_chat__message--list" data-message-id=${message.id}>
             <div class="main_chat__message--list--name">
               ${message.user_name}
               <div class="main_chat__message--list--name--date">
@@ -19,7 +19,7 @@ $(function(){
       return html;
     } else {
       var html =
-         `<div class="main_chat__message--list">
+         `<div class="main_chat__message--list" data-message-id=${message.id}>
             <div class="main_chat__message--list--name">
               ${message.user_name}
               <div class="main_chat__message--list--name--date">
@@ -61,4 +61,29 @@ $(function(){
     });
    
   })
+  var reloadMessages = function() {
+    var last_message_id = $('.main_chat__message--list:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.main_chat__message').append(insertHTML);
+        $('.main_chat__message').animate({ scrollTop: $('.main_chat__message')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
